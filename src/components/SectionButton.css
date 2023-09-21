@@ -1,0 +1,18 @@
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .15s;
+  }
+
+.on {
+    opacity: 1;
+}
+
+.off {
+    opacity: 0.3;
+}
+
+.button {
+    margin: 0;
+    padding: 0;
+}

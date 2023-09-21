@@ -1,0 +1,24 @@
+
+.highlight {
+    opacity: 1 !important;
+}
+
+.image-shadow {
+    box-shadow: -10px 10px;
+    border-radius: 0px 8px 0px 8px;
+}
+
+.dimmed {
+    opacity: 0.4;
+}
+
+.section-tags {
+    border-radius: 16px;
+    color: ad952d66;
+}
+
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .15s;
+  }
