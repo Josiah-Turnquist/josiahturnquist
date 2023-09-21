@@ -231,9 +231,9 @@ function App({ theme }) {
             </ul>
 
             <div className='icons-link-wrapper'>
-              <GitHubIcon sx={hoverSX} href="https://github.com/Josiah-turnquist"/>
-              <InstagramIcon sx={hoverSX} href="https://www.instagram.com/josiah_obadiah"/>
-              <LinkedInIcon sx={hoverSX} href="https://www.linkedin.com/in/jturnq/"/>
+              <a href="https://github.com/Josiah-turnquist"><GitHubIcon sx={hoverSX}/></a>
+              <a href="https://www.instagram.com/josiah_obadiah"><InstagramIcon sx={hoverSX} /></a>
+              <a href="https://www.linkedin.com/in/jturnq/"><LinkedInIcon sx={hoverSX} /></a>
             </div>
           </div>
       </LeftSide>
