@@ -157,7 +157,7 @@ export const projectList = [
         img: resume,
         title: 'Résumé V.1',
         company: 'Self-Employed',
-        url: 'https://www.v1.josiahturnquist.com/',
+        url: 'https://v0.josiahturnquist.com/',
         description: 'My first-ever solo React project. This is where I learned the basics of web design.',
         tags: ['React', 'JavaScript', 'CSS', 'UX/UI', 'AWS', 'SendGrid'],
         sections: ['Tech'],
