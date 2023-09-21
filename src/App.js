@@ -71,7 +71,7 @@ const LeftSide = styled('div')({
     marginLeft: '3rem',
     marginTop: '0rem',  
     maxWidth: '100vw',
-    minWidth: '80vw',
+    minWidth: '85vw',
   },
   [theme.breakpoints.down('tablet')]: { // phone changes
     marginLeft: '2rem',
