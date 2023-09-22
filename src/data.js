@@ -2,6 +2,8 @@ import VHS from './vhs.png';
 import resume from './resume-v1.png';
 import ennui from './text-based-game.png';
 
+export const textSnippet = "I'm a communicator and teamplayer with a diverse background in technical and creative fields.";
+
 export const sections = [
     'All',
     'Tech',

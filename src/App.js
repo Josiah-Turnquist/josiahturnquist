@@ -9,7 +9,7 @@ import Project from "./components/Project";
 import SectionButton from "./components/SectionButton";
 
 // Data
-import { experienceList, projectList, sections } from './data';
+import { textSnippet, experienceList, projectList, sections } from './data';
 
 // Icons
 import IconButton from '@mui/material/IconButton';
@@ -191,16 +191,14 @@ function App({ theme }) {
 
 
       <LeftSide className="transition-all">
-          <Typography className="transition-all" variant="h3" color={theme.palette.primary.main} textAlign="left" component="h2" position='inherit' fontWeight={600}>
+          <Typography className="transition-all" variant="h3" color={theme.palette.primary.main} textAlign="left" position='inherit' fontWeight={600}>
             Josiah Turnquist
           </Typography>
-          <Typography className="transition-all" variant="h6" color={theme.palette.primary.main} textAlign="left" marginTop="10px" component="h2">
+          <Typography className="transition-all" variant="h6" color={theme.palette.primary.main} textAlign="left" marginTop="10px">
             Technical Project Manager
           </Typography>
           <Typography className="transition-all" variant="subtitle1" color={theme.palette.secondary.main} textAlign="left" width="340px" marginTop="10px" component="h2">
-            I'm a communicator and teamplayer with 
-            a diverse background in technical 
-            and creative fields.
+            {textSnippet}
           </Typography>
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: 'calc(100% - 12rem)'}}>
             <ul className='nav-wrapper transition-all' onMouseLeave={() => setHover(0)} style={{ display: (width > theme.breakpoints.values.tablet ? 'block' : 'none') }}>
@@ -246,11 +244,11 @@ function App({ theme }) {
         </div>
 
         <Typography id="about" variant="body1" className="fix-scroll" color={theme.palette.secondary.main} textAlign="left" marginTop="10px">
-        Inspired by my oldest brother, I discovered the art of video game development when I was only 12 years old. From then on I spent hundreds - or thousands - of hours rebuilding old classics like Pac-Man and Pong before moving on to bigger RPG games like Runescape lookalikes.
-        <br /><br />
-        I finally aged out of developing video games when I took my first real computer science course at <a className="text-link transition-all" href="wasd">Diablo Valley College</a> - where I quickly impressed the faculty and started a <a className="text-link transition-all" href="https://www.dvc.edu/tutoring">school-funded COMSC tutoring department</a>. The new department was so successful that I ended up teaching high school COMSC classes for underprivileged first-generation college students for <a className="text-link transition-all" href="wasd">Upward Bound</a> and <a className="text-link transition-all" href="wasd">Educational Talent Search</a>.
-        <br /><br />
-        Years later I’ve acquired a vast breadth of experience across countless fields. I’ve built proprietary software for fire departments, COVID virtual streaming software, and even some biomedical tracking plugins for an <a className="text-link transition-all" href="https://www.togetherai.com/">AI company in Australia</a>. Scroll down to check out my fuller experience! It may not be quite what you expect...
+          Inspired by my oldest brother, I discovered the art of video game development when I was only 12 years old. From then on I spent hundreds - or thousands - of hours rebuilding old classics like Pac-Man and Pong before moving on to bigger RPG games like Runescape lookalikes.
+          <br /><br />
+          I finally aged out of developing video games when I took my first real computer science course at <a className="text-link transition-all" href="wasd">Diablo Valley College</a> - where I quickly impressed the faculty and started a <a className="text-link transition-all" href="https://www.dvc.edu/tutoring">school-funded COMSC tutoring department</a>. The new department was so successful that I ended up teaching high school COMSC classes for underprivileged first-generation college students for <a className="text-link transition-all" href="wasd">Upward Bound</a> and <a className="text-link transition-all" href="wasd">Educational Talent Search</a>.
+          <br /><br />
+          Years later I’ve acquired a vast breadth of experience across countless fields. I’ve built proprietary software for fire departments, COVID virtual streaming software, and even some biomedical tracking plugins for an <a className="text-link transition-all" href="https://www.togetherai.com/">AI company in Australia</a>. Scroll down to check out my fuller experience! It may not be quite what you expect...
         </Typography>
 
         <div id="experience" className='fix-scroll transition-all'>
