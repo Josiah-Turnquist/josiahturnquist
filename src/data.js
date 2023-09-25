@@ -2,13 +2,14 @@ import VHS from './vhs.png';
 import resume from './resume-v1.png';
 import ennui from './text-based-game.png';
 
-export const textSnippet = "I'm a communicator and teamplayer with a diverse background in technical and creative fields.";
+export const textSnippet = "A communicator and teamplayer with a diverse background in technical and creative fields.";
 
 export const sections = [
     'All',
     'Tech',
     'Leadership',
-    'Communication'
+    'Communication',
+    'Volunteer'
 ]
 
 export const experienceList = [
@@ -20,7 +21,7 @@ export const experienceList = [
         url: 'https://www.barefootsolutions.com/',
         description: 'This role includes COO, CTO, Project Manager, and Product Manager all wrapped up into one title. I work closely with stakeholders, designers, engineers, and lawyers to get complex and diverse products made on time and within budget.',
         tags: ['Public Speaking', 'Technical Knowledge', 'CSS', 'Quality Assurance', 'AWS', 'Google Analytics 4'],
-        sections: ['Tech', 'Public Speaking'],
+        sections: ['Tech', 'Public Speaking', 'Communication'],
     },
     {
         beginDate: 'Mar 2021',
@@ -30,7 +31,7 @@ export const experienceList = [
         url: 'https://sdgrove.org/',
         description: 'As the acting founder of the Grove Café I\m responsible for training, scheduling, upkeep, and so on. We match a typical Starbucks\' production rate in just a few hours per sunday.',
         tags: ['Leadership', 'Quality Assurance', 'Food & Beverage', 'Team Building', 'Pastoring'],
-        sections: ['Volunteer', 'Customer Service', 'Leadership', 'Entrepreneur'],
+        sections: ['Volunteer', 'Customer Service', 'Leadership', 'Entrepreneur', 'Communication'],
     },
     {
         beginDate: 'Nov 2021',
@@ -40,7 +41,7 @@ export const experienceList = [
         url: 'https://www.togetherai.com/',
         description: 'Integrated togetherAI with health data provider services to better analyze anomalies of children\'s wellbeing.',
         tags: ['Vue.js', 'Tailwind', 'TypeScript', 'Mobile Development', 'AWS', ],
-        sections: ['Tech'],
+        sections: ['Tech', 'Communication'],
     },
     {
         beginDate: 'Nov 2020',
@@ -60,7 +61,7 @@ export const experienceList = [
         url: 'https://www.dvc.edu/',
         description: 'Normally a role only allowed for graduates that completed a Master\'s program already, I was responsible for all the tasks of a regular college campus instructor.',
         tags: ['Lecturing', 'Teaching', 'Communication', 'Public Speaking', 'Microsoft'],
-        sections: ['Tech'],
+        sections: ['Communication'],
     },
     {
         beginDate: 'May 2020',
@@ -90,7 +91,7 @@ export const experienceList = [
         url: 'https://www.dvc.edu/',
         description: 'Founder, Hiring Manager, and Lead Tutor for our tutoring department. This is a small team of the most expert student-programmers.',
         tags: ['Teaching', 'Communication', 'Public Speaking', 'Tutoring', 'Education'],
-        sections: ['Tech', 'Education', 'Communication'],
+        sections: ['Tech', 'Leadership', 'Education', 'Communication'],
     },
     {
         beginDate: 'Jun 2019',
@@ -100,7 +101,7 @@ export const experienceList = [
         url: 'https://www.dvc.edu/enrollment/ets/trio.html',
         description: 'The sole instructor for federally-funded computer science classes. The target audience is underprivileged first-generation college students. I hand-tailored each curriculum with regular and close student mentorship.',
         tags: ['Lecturing', 'Teaching', 'Communication', 'Public Speaking', 'Tutoring', 'Education'],
-        sections: ['Tech', 'Education', 'Communication'],
+        sections: ['Tech', 'Leadership', 'Education', 'Communication'],
     },
     {
         beginDate: 'Jun 2019',
@@ -115,12 +116,12 @@ export const experienceList = [
     {
         beginDate: 'Mar 2018',
         endDate: 'Jul 2020',
-        position: 'Club CEO/Coordinator',
+        position: 'Club Founder & Coordinator',
         company: 'Cru',
         url: 'https://www.cru.org/',
         description: 'Club founder/coordinator of the largest Christian club on campus. As the primary facilitator I led multiple Bible studies regularly, hosted events, and welcomed new attendees every week.',
         tags: ['Teaching', 'Communication', 'Leadership', 'Pastoring', 'Public Speaking', 'Education'],
-        sections: ['Education', 'Volunteer', 'Communication', 'Leadership'],
+        sections: ['Education', 'Volunteer', 'Leadership', 'Communication'],
     },
     {
         beginDate: 'Jul 2015',
@@ -130,7 +131,7 @@ export const experienceList = [
         url: 'https://www.koinoniaconferencegrounds.org/',
         description: 'As a veteran counselor I was responsible for leading regular Bible studies, compassionately instructing/disciplining kids, and directly them to all events.',
         tags: ['Teaching', 'Communication', 'Leadership', 'Pastoring', 'Public Speaking', 'Education'],
-        sections: ['Education', 'Volunteer', 'Communication', 'Leadership'],
+        sections: ['Education', 'Volunteer', 'Leadership', 'Communication'],
     },
 ]
 
