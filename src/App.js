@@ -220,12 +220,12 @@ function App({ theme }) {
                   <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">Projects</span>
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a className={`nav-item-wrapper ${hover === 4 || hash === 'other'  ? 'active' : ''}`} href="#other" onMouseEnter={() => setHover(4)} onMouseDown={() => setHash("other")} >
                   <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span>
                   <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">Other</span>
                 </a>
-              </li>
+              </li> */}
             </ul>
 
             <div className='icons-link-wrapper'>
