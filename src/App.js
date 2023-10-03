@@ -184,8 +184,9 @@ function App({ theme }) {
       <GradientOverlay props={{ mouseX, mouseY }} />
       <img src={Mountains} key="mountains" alt="mountain background" style={{
         position: 'fixed',
-        top: '56%',
+        bottom: '0', // 56% for mountains-simple
         left: '0',
+        width: '65%',
         maxWidth: '90vw',
       }}/>
 
@@ -229,7 +230,7 @@ function App({ theme }) {
             </ul>
 
             <div className='icons-link-wrapper'>
-              <a href="https://github.com/Josiah-turnquist"><GitHubIcon sx={hoverSX}/></a>
+              <a href="https://github.com/Josiah-turnquist"><GitHubIcon sx={hoverSX} /></a>
               <a href="https://www.instagram.com/josiah_obadiah"><InstagramIcon sx={hoverSX} /></a>
               <a href="https://www.linkedin.com/in/jturnq/"><LinkedInIcon sx={hoverSX} /></a>
             </div>
