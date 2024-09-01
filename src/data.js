@@ -154,7 +154,7 @@ export const projectList = [
         img: timeline,
         title: 'The Bible Timeline',
         company: 'Self-Employed',
-        url: 'https://www.thebiblepioneer.com/',
+        url: 'https://www.biblepioneer.com/',
         description: 'Building modern UI in areas that have been behind technology for years.',
         tags: ['React', 'JavaScript', 'CSS', 'UX/UI', 'AWS', 'SendGrid'],
         sections: ['Tech', 'Ministry'],
