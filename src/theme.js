@@ -3,8 +3,11 @@ import { createTheme } from '@mui/material/styles';
 let theme = createTheme({
   palette: {
         primary: {
-            main: '#EDFFEFDD',
-            light: '#EDFFEFEA',
+          main: '#EDFFEFDD',
+          faded: '#EDFFEF70',
+          unselected: '#6E8970DD',
+          overlay: '#18241A',
+          light: '#EDFFEFEA',
 
     },
     secondary: {
@@ -13,7 +16,8 @@ let theme = createTheme({
     experience: {
         box: '#CDDDFF0A'
     },
-    background: '#0E1B10' //#18251D
+    background: '#0E1B10', //#18251D
+    background2: '#2B3C2D',
   },
   typography: {
     h3: {

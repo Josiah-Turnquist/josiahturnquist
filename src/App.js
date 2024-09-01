@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import { styled } from '@mui/system';
 import './App.css';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Components
 import Experience from "./components/Experience";
@@ -12,18 +12,18 @@ import SectionButton from "./components/SectionButton";
 import { textSnippet, experienceList, projectList, sections } from './data';
 
 // Icons
-import IconButton from '@mui/material/IconButton';
+// import IconButton from '@mui/material/IconButton';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import Mountains from "./mountains.svg";
+import Mountains from "./assets/mountains.svg";
 
 
 // Theme
 import theme from "./theme";
 
-import { useLocation } from 'react-router-dom'
-import { PropaneSharp } from '@mui/icons-material';
+// import { useLocation } from 'react-router-dom'
+// import { PropaneSharp } from '@mui/icons-material';
 
 const MainDiv = styled('div')({
   height: '100%',
@@ -86,7 +86,8 @@ const RightSide = styled('div')({
   padding: 0,
   paddingRight: '6rem',
   paddingTop: '6rem',
-  minWidth: '420px',
+  paddingBottom: '1.5rem',
+  // minWidth: '420px',
   maxWidth: '528px',
   width: 'calc(60vw - 84px)',
   position: 'relative',
@@ -158,7 +159,7 @@ function App({ theme }) {
   }
 
   // Background Effect
-  const glowingRef = React.useRef(null)
+  const glowingRef = React.useRef(null);
     
   // add a useEffect to check that our glowingRef has a value
   function mouseMoveEvent(e) {
@@ -174,6 +175,7 @@ function App({ theme }) {
     if (glowingRef) {
       glowingRef.current.addEventListener('mousemove', mouseMoveEvent)
     }
+
     // don't forget to *remove* the eventListener
     // when your component unmounts!
     return () => glowingRef.current.removeEventListener('mousemove', mouseMoveEvent)
@@ -236,15 +238,15 @@ function App({ theme }) {
             </div>
           </div>
       </LeftSide>
-      <RightSide >
+      <RightSide id="about">
         
-        <div style={{ display: (width > theme.breakpoints.values.desktop ? 'none' : 'block') }} className='fix-scroll'>
+        <div style={{ display: (width > theme.breakpoints.values.desktop ? 'none' : 'block') }}>
           <Typography variant="body1" color={theme.palette.secondary.main} textAlign="left" paddingY="1rem" component="h2" fontWeight="600">
             ABOUT ME
           </Typography>
         </div>
 
-        <Typography id="about" variant="body1" className="fix-scroll" color={theme.palette.secondary.main} textAlign="left" marginTop="10px">
+        <Typography variant="body1" color={theme.palette.secondary.main} textAlign="left" marginTop="10px">
           Inspired by my oldest brother, I discovered the art of video game development when I was only 12 years old. From then on I spent hundreds - or thousands - of hours rebuilding old classics like Pac-Man and Pong before moving on to bigger RPG games like Runescape lookalikes.
           <br /><br />
           I finally aged out of developing video games when I took my first real computer science course at <a className="text-link transition-all" href="wasd">Diablo Valley College</a> - where I quickly impressed the faculty and started a <a className="text-link transition-all" href="https://www.dvc.edu/tutoring">school-funded COMSC tutoring department</a>. The new department was so successful that I ended up teaching high school COMSC classes for underprivileged first-generation college students for <a className="text-link transition-all" href="wasd">Upward Bound</a> and <a className="text-link transition-all" href="wasd">Educational Talent Search</a>.
@@ -252,8 +254,8 @@ function App({ theme }) {
           Years later I’ve acquired a vast breadth of experience across countless fields. I’ve built proprietary software for fire departments, COVID virtual streaming software, and even some biomedical tracking plugins for an <a className="text-link transition-all" href="https://www.togetherai.com/">AI company in Australia</a>. Scroll down to check out my fuller experience! It may not be quite what you expect...
         </Typography>
 
-        <div id="experience" className='fix-scroll transition-all'>
-          <Typography variant="body1" color={theme.palette.secondary.main} textAlign="left"  paddingBottom="2rem" paddingTop="15vmin" component="h2" fontWeight="600">
+        <div className='transition-all'>
+          <Typography id="experience" variant="body1" color={theme.palette.secondary.main} textAlign="left"  paddingBottom="2rem" paddingTop="15vmin" component="h2" fontWeight="600">
             EXPERIENCE
           </Typography>
 
@@ -289,7 +291,7 @@ function App({ theme }) {
             ))}
         </div>
 
-        <div id="projects" className='fix-scroll transition-all'>
+        <div id="projects" className='transition-all' style={{ margin: '0 0 1rem 0' }}>
           <Typography variant="body1" color={theme.palette.secondary.main} textAlign="left" paddingTop="15vmin" paddingBottom="2rem" component="h2" fontWeight="600">
             PROJECTS
           </Typography>
@@ -311,7 +313,7 @@ function App({ theme }) {
             ))}
         </div>
 
-        {/* <div id="other" className='fix-scroll'>
+        {/* <div id="other">
           <Typography variant="body1" color={theme.palette.secondary.main} textAlign="left" paddingY="10rem" component="h2" fontWeight="600">
             OTHER
           </Typography>
