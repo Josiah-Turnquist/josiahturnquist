@@ -1,7 +1,6 @@
 .App {
   text-decoration: inherit;
   text-decoration-line: none;
-  scroll-behavior: smooth;
 }
 
 a {
@@ -27,11 +26,6 @@ a:hover {
   flex-direction: row;
   align-items: center;
   padding-top: 1.5rem;
-}
-
-.fix-scroll {
-  scroll-margin-top: 6rem;
-  scroll-snap-align: start;
 }
 
 ul {

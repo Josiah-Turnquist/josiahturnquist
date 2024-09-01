@@ -1,6 +1,9 @@
-import VHS from './vhs.png';
-import resume from './resume-v1.png';
-import ennui from './text-based-game.png';
+import chosen from './assets/chosen.png';
+import timeline from './assets/timeline.png';
+import VHS from './assets/vhs.png';
+import resume from './assets/resume-v1.png';
+import thehelperorg from './assets/thehelperorg-project.png';
+import ennui from './assets/text-based-game.png';
 
 export const textSnippet = "A communicator and teamplayer with a diverse background in technical and creative fields.";
 
@@ -29,7 +32,7 @@ export const experienceList = [
         position: 'Café Manager',
         company: 'Grove Church',
         url: 'https://sdgrove.org/',
-        description: 'As the acting founder of the Grove Café I\m responsible for training, scheduling, upkeep, and so on. We match a typical Starbucks\' production rate in just a few hours per sunday.',
+        description: 'As the acting founder of the Grove Café I\'m responsible for training, scheduling, upkeep, and so on. We match a typical Starbucks\' production rate in just a few hours per sunday.',
         tags: ['Leadership', 'Quality Assurance', 'Food & Beverage', 'Team Building', 'Pastoring'],
         sections: ['Volunteer', 'Customer Service', 'Leadership', 'Entrepreneur', 'Communication'],
     },
@@ -139,6 +142,24 @@ export const experienceList = [
 
 export const projectList = [
     {
+        img: chosen,
+        title: 'Chosen Music Lessons',
+        company: 'Self-Employed',
+        url: 'https://www.chosenmusiclessons.com/',
+        description: 'A music expert that needed a professional online portfolio.',
+        tags: ['React', 'JavaScript', 'CSS', 'UX/UI', 'AWS', 'SendGrid'],
+        sections: ['Tech'],
+    },
+    {
+        img: timeline,
+        title: 'The Bible Timeline',
+        company: 'Self-Employed',
+        url: 'https://www.thebiblepioneer.com/',
+        description: 'Building modern UI in areas that have been behind technology for years.',
+        tags: ['React', 'JavaScript', 'CSS', 'UX/UI', 'AWS', 'SendGrid'],
+        sections: ['Tech', 'Ministry'],
+    },
+    {
         img: VHS,
         title: 'Van Holten Shots',
         company: 'Self-Employed',
@@ -146,6 +167,15 @@ export const projectList = [
         description: 'Designed and delivered a high-quality, robust photography portfolio with layered IAM and photo management.',
         tags: ['React', 'JavaScript', 'CSS', 'UX/UI', 'AWS', 'SendGrid'],
         sections: ['Tech'],
+    },
+    {
+        img: thehelperorg,
+        title: 'The Helper Organization',
+        company: 'Self-Employed',
+        url: 'https://www.thehelperorg.com/',
+        description: 'Putting my professional and pastoral skills to use, I run a non-profit with a close-friend working to fund churches internationally.',
+        tags: ['React', 'JavaScript', 'CSS', 'UX/UI', 'AWS', 'SendGrid'],
+        sections: ['Tech', 'Ministry'],
     },
     {
         img: ennui,
