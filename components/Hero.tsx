@@ -60,13 +60,14 @@ export function Hero() {
 
         {/* Masthead rule: the facts a recruiter scans for, in one line. */}
         <dl className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-line pt-6 font-mono text-xs tracking-wide text-faint uppercase">
+          {/* No employer here by design: position, direction, place. */}
           <div className="flex items-center gap-2">
-            <dt className="sr-only">Role</dt>
+            <dt className="sr-only">Current position</dt>
             <dd className="text-ink">{profile.title}</dd>
           </div>
           <div className="flex items-center gap-2">
-            <dt className="sr-only">Employer</dt>
-            <dd>Barefoot Solutions</dd>
+            <dt className="sr-only">Target position</dt>
+            <dd>Product Manager</dd>
           </div>
           <div className="flex items-center gap-2">
             <dt className="sr-only">Location</dt>
