@@ -1,0 +1,8 @@
+# Netlify auto-installs @netlify/plugin-nextjs for Next.js projects; this file
+# pins Node and is a placeholder for future site-level config.
+
+[build]
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "22"

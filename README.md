@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# josiahturnquist.com
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+My personal site and résumé. Built to be read by people *and* by machines:
+recruiters increasingly hand a URL to an LLM before they open it themselves,
+so everything here is server-rendered, structured, and available as plain text.
 
-## Available Scripts
+**Live:** [josiahturnquist.com](https://josiahturnquist.com)
 
-In the project directory, you can run:
+## Stack
 
-### `npm start`
+| Layer    | Tech                                            |
+| -------- | ----------------------------------------------- |
+| Framework| Next.js 16 (App Router, Turbopack) · React 19   |
+| Language | TypeScript 5 (strict)                           |
+| Styling  | Tailwind v4 (CSS-first tokens), no config file  |
+| Type     | Instrument Serif · Inter · JetBrains Mono       |
+| Hosting  | Netlify (Node 22)                               |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Every route prerenders to static HTML. There is no database and no runtime API.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Layout
 
-### `npm test`
+```
+app/
+  layout.tsx           fonts, metadata, pre-paint theme script, JSON-LD
+  page.tsx             the single-page site
+  resume/page.tsx      printable résumé
+  llms.txt/route.ts    plain-text summary (llmstxt.org convention)
+  resume.json/route.ts JSON Resume schema
+  robots.ts            explicit allow-list for AI crawlers
+  sitemap.ts
+  opengraph-image.tsx  generated share card
+content/               ← all site copy lives here
+  profile.ts           bio, pitch, skills, education
+  experience.ts        roles, newest first
+  work.ts              projects
+  versions.ts          the v0/v1/v2 subdomains
+components/
+lib/
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**To update the site, edit `content/`.** The pages, the résumé, `llms.txt`, and
+`resume.json` all read from those four files, so there is one source of truth
+and no chance of the machine-readable copies drifting from the visible ones.
 
-### `npm run build`
+## Being readable by machines
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This is a deliberate feature, not a side effect:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Server-rendered HTML.** All content is in the initial response, with no
+  client-side fetching. Roles hidden behind an inactive filter stay in the DOM
+  and are only visually hidden, so a crawler always sees the full history.
+- **`/llms.txt`**: the entire site as plain text.
+- **`/resume.json`**: [JSON Resume](https://jsonresume.org) schema, which
+  applicant tracking systems parse directly.
+- **JSON-LD**: a schema.org `Person` with `hasOccupation`, `alumniOf`,
+  `knowsAbout`, and every project as `subjectOf`.
+- **`robots.txt`** allows GPTBot, ClaudeBot, PerplexityBot, and friends by name.
+- Semantic headings, real landmarks, and accessible names on every control.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Versions
 
-### `npm run eject`
+Each version of this site stays online at its own subdomain, and each maps to a
+branch in this repo:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| Version | Branch | URL                                                            | Stack               |
+| ------- | ------ | -------------------------------------------------------------- | ------------------- |
+| v2      | `main` | [josiahturnquist.com](https://josiahturnquist.com)             | Next.js 16          |
+| v1      | `v1`   | [v1.josiahturnquist.com](https://v1.josiahturnquist.com)       | Create React App    |
+| v0      | `v0`   | [v0.josiahturnquist.com](https://v0.josiahturnquist.com)       | React, my first one |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Development
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm install
+npm run dev        # http://localhost:3000
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm run build      # production build
+npm run typecheck  # tsc --noEmit
+npm run lint
+```

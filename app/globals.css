@@ -1,0 +1,220 @@
+@import 'tailwindcss';
+
+/* Theme is driven by a `.dark` class on <html>, set before paint by the inline
+   script in layout.tsx so there is never a flash of the wrong theme. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), ui-serif, Georgia, serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  /* Warm paper, evergreen ink — the green identity of the old site, refined. */
+  --canvas: #fbfaf7;
+  --surface: #ffffff;
+  --raised: #f3f2ec;
+  --line: #e3e1d8;
+  --ink: #161a17;
+  --muted: #5c665f;
+  --faint: #8c968f;
+  --accent: #0d6b46;
+  --accent-ink: #ffffff;
+
+  --grain: 0.025;
+  --glow-a: 2%;
+  color-scheme: light;
+}
+
+.dark {
+  --canvas: #090d0b;
+  --surface: #0f1411;
+  --raised: #161d19;
+  --line: #212a25;
+  --ink: #e9eeea;
+  --muted: #8d9992;
+  --faint: #626d67;
+  --accent: #6fe3a8;
+  --accent-ink: #06231a;
+
+  --grain: 0.04;
+  --glow-a: 2.5%;
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Offset anchor targets so the sticky header never covers a heading. */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* A faint film of grain keeps the large flat areas from looking plasticky. */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: var(--grain);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Cursor-following glow. Parked off-screen until PointerGlow reports a real
+     pointer, so it never flashes in the top-left corner on load. */
+  .pointer-glow {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s var(--ease-out-quint);
+    /* Peak alpha stays whisper-quiet (--glow-a per theme): any stronger and
+       the tint visibly flattens hairline borders and faint text under it. */
+    background: radial-gradient(
+      110rem circle at var(--mx, 50%) var(--my, 35%),
+      color-mix(in oklab, var(--accent) var(--glow-a, 2%), transparent),
+      transparent 70%
+    );
+  }
+
+  :root[data-glow='on'] .pointer-glow {
+    opacity: 1;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  /* Small uppercase mono label used for section eyebrows and metadata. */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  /* Sliding tool showcase in the hero. The track holds the list twice; moving
+     it -50% then snapping back is invisible, so it loops forever. Hovering
+     pauses it; reduced motion stops it and wraps the (single) list instead. */
+  .marquee {
+    width: max-content;
+    animation: marquee 36s linear infinite;
+  }
+
+  .marquee-mask {
+    mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  }
+
+  .marquee-mask:hover .marquee {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      width: auto;
+      flex-wrap: wrap;
+      animation: none;
+    }
+    .marquee-mask {
+      mask-image: none;
+    }
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Underline that draws itself in on hover, instead of a hard text-decoration. */
+  .link-underline {
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1px;
+    transition: background-size 0.45s var(--ease-out-quint);
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+}
+
+/* Scroll-reveal. Content is visible by default and only hidden once JS has
+   confirmed it can animate, so no-JS readers and crawlers always see it. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal='pending'] {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  [data-reveal='shown'] {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.7s var(--ease-out-quint),
+      transform 0.7s var(--ease-out-quint);
+  }
+}
+
+@media print {
+  body::before {
+    display: none;
+  }
+  .no-print {
+    display: none !important;
+  }
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.7em;
+    color: #555;
+    word-break: break-all;
+  }
+}
