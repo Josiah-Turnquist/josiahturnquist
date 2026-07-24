@@ -1,0 +1,20 @@
+# AWS Amplify build spec. This file overrides any build settings saved in the
+# Amplify console, so the CRA-era config there does not need to be touched.
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    # `next.config.mjs` sets `output: 'export'`, which writes the site to out/.
+    baseDirectory: out
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .next/cache/**/*
