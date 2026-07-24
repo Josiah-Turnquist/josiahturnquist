@@ -5,6 +5,9 @@ frontend:
   phases:
     preBuild:
       commands:
+        # Next 16 requires Node 20+; Amplify's default image may be older.
+        - nvm install 22
+        - node --version
         - npm ci
     build:
       commands:
