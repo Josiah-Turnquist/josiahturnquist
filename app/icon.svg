@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Favicon: evergreen tile, the site's contour-ring motif, serif italic J.
+       Georgia is universally installed, so the glyph renders consistently. -->
+  <rect width="64" height="64" rx="14" fill="#0e1712"/>
+  <g fill="none" stroke="#6fe3a8" stroke-width="1.5">
+    <ellipse cx="46" cy="32" rx="34" ry="22" opacity="0.14" transform="rotate(-12 46 32)"/>
+    <ellipse cx="46" cy="32" rx="25" ry="16" opacity="0.2" transform="rotate(-10 46 32)"/>
+    <ellipse cx="46" cy="32" rx="16" ry="10" opacity="0.28" transform="rotate(-8 46 32)"/>
+  </g>
+  <text x="30" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="600" font-size="44" fill="#6fe3a8">J</text>
+</svg>

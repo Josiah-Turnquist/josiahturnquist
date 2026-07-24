@@ -76,10 +76,8 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
-  icons: {
-    icon: '/favicon.ico',
-    apple: '/preview.png',
-  },
+  // Icons come from the app/ file conventions (icon.svg, apple-icon.png);
+  // public/favicon.ico stays as the hardcoded-path fallback.
 };
 
 export const viewport: Viewport = {
